@@ -1,0 +1,14 @@
+.alert{
+    position: fixed;
+    top: 20vh;
+    left: 35vw;
+    width: 25vw;
+    z-index: 100;
+    background: white;
+    text-align:center;
+    color:red;
+}
+
+.message .close{
+text-align: center;
+}

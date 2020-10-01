@@ -1,0 +1,40 @@
+<div class="right_col" style="min-height:1659px;padding:150px">
+  <div class="row">
+    <div class="table-title">
+      <div class="row">
+          <div class="col-sm-8"><h2>Country <b>Details</b></h2></div>
+          <div class="col-sm-4">
+              <button type="button" (click)='add()' class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+          </div>
+      </div>
+  </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+            <th>country</th>
+            <th>details</th>
+            <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let country of countryDetails">
+            <td>
+              <input type='checkbox' [checked]='country.checked' [(ngModel)] ='country.checked' />
+              {{country.country }}
+            </td>
+            <td> {{country.details}} </td>
+            <td>
+                <button class=" text-primary  "(click)='edit(country.country)' title="edit" data-toggle="tooltip" [disabled]="!country.checked">edit</button>
+                <button class="text-danger " (click)='delete(country.country)' title="Delete" data-toggle="tooltip" [disabled]="!country.checked">delete</button>
+            </td>
+        </tr>     
+      </tbody>
+      </table>
+  </div>
+</div>
+<div *ngIf="isOpen" class='backdrop' >
+  <div class=" close mx-auto row" >
+    <div class="col "> <button class="btn btn-danger"  (click)="onClose()">close</button></div>
+  </div>
+  <app-edit [name]='countryName' (details)="updateDetails($event)" ></app-edit>
+</div>

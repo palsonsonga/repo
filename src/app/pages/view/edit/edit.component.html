@@ -1,0 +1,30 @@
+<div class="alert">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"> Edit Your Country Details</h3>
+    </div>
+    <div *ngIf="edited" class="panel-body">
+      <form #myForm='ngForm' (ngSubmit)="editDetails()">
+        <div>
+          <div class="form-group">
+            <label>Country Details: </label><br />
+            <input type="text" class='form-control' name="countryDetails" #countryDetails='ngModel'
+              [(ngModel)]='country.details'  pattern="[A-Za-z]{10,100}" required
+              [class.is-invalid]="countryDetails.invalid&&countryDetails.touched" placeholder="Country  Details" />
+            <p *ngIf="countryDetails.invalid">
+              <span *ngIf="countryDetails.errors?.required&&countryDetails.touched" class="text-danger"> Country Details
+                are required</span>
+              <span *ngIf="countryDetails.errors?.pattern" class="text-danger"> Country Details to be valid </span>
+            </p>
+          </div>
+        </div>
+        <div class='text-center'>
+          <button type='submit' [disabled]='myForm.invalid' class='btn-sm  btn-block btn-primary'>Edit</button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf='!edited'class=' h3 text-success'>
+      Data Edited Successfully
+    </div>
+  </div>
+</div>

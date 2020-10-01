@@ -1,0 +1,5 @@
+[
+    { "checked": false, "country": "India",  "details":  "The name India is derived from the River Indus" },
+    { "checked": true, "country": "Spain", "details":"Spain, a country on Europe’s Iberian Peninsula " },
+    { "checked": false, "country": "Australia","details": "Australia, officially known as the Commonwealth of Australia, is a sovereign country " }
+  ]

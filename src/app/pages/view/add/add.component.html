@@ -1,0 +1,34 @@
+<div class="right_col" style="min-height:1659px;padding:150px">
+  <div class='row'>
+    <form #myForm='ngForm' (ngSubmit)="addDetails()">
+      <div>
+        <div class="form-group">
+          <label>Country Name: </label><br />
+          <input type="text" name="countryName" class='form-control' #countryName='ngModel'
+            [(ngModel)]='country.country'  pattern="[A-Za-z]{3,10}" required
+            [class.is-invalid]="countryName.invalid&&countryName.touched" placeholder="Country Name" />
+          <p *ngIf="countryName.invalid">
+            <span *ngIf="countryName.errors?.required&&countryName.touched" class="text-danger"> Country Name is
+              required</span>
+            <span *ngIf="countryName.errors?.pattern" class="text-danger"> Country Name must be valid </span>
+          </p>
+        </div>
+        <div class="form-group">
+          <label>Country Details: </label><br />
+          <input type="text" class='form-control' name="countryDetails" #countryDetails='ngModel'
+            [(ngModel)]='country.details'  pattern="[A-Za-z]{10,100}" required
+            [class.is-invalid]="countryDetails.invalid&&countryDetails.touched" placeholder="Country  Details" />
+          <p *ngIf="countryDetails.invalid">
+            <span *ngIf="countryDetails.errors?.required&&countryDetails.touched" class="text-danger"> Country Details
+              are required</span>
+            <span *ngIf="countryDetails.errors?.pattern" class="text-danger"> Country Details to be valid </span>
+          </p>
+        </div>
+      </div>
+      <div class='text-center'>
+        <button type='submit' [disabled]='myForm.invalid' class='btn-sm btn-primary'>add </button>
+        <button class='btn-sm btn-success' (click)='close()'> cancel</button>
+      </div>
+    </form>
+  </div>
+</div>>
